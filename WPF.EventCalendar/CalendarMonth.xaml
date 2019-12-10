@@ -1,0 +1,102 @@
+﻿<UserControl
+    x:Class="WPF.EventCalendar.CalendarMonth"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPF.EventCalendar"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <local:MonthNumberToNameConverter x:Key="MonthNumberToNameConverter" />
+    </UserControl.Resources>
+    <DockPanel>
+        <Grid
+            Height="30"
+            HorizontalAlignment="Center"
+            DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Width="50"
+                Click="PreviousMonthButton_OnClick"
+                Content="&lt;-" />
+
+            <Grid Grid.Column="1" Margin="50,0,50,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <ComboBox
+                    x:Name="MonthsComboBox"
+                    Width="100"
+                    BorderThickness="0"
+                    FontSize="16"
+                    FontWeight="DemiBold"
+                    SelectionChanged="MonthsComboBox_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Converter={StaticResource MonthNumberToNameConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox
+                    x:Name="YearsComboBox"
+                    Grid.Column="1"
+                    BorderThickness="0"
+                    FontSize="16"
+                    FontWeight="DemiBold"
+                    SelectionChanged="YearsComboBox_SelectionChanged" />
+            </Grid>
+
+            <Button
+                Grid.Column="2"
+                Width="50"
+                Click="NextMonthButton_OnClick"
+                Content="-&gt;" />
+        </Grid>
+
+
+        <Grid
+            x:Name="DayLabelsGrid"
+            Margin="0,20,0,0"
+            DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Grid Name="DaysGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        </Grid>
+    </DockPanel>
+</UserControl>

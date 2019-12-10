@@ -1,0 +1,17 @@
+﻿<UserControl
+    x:Class="WPF.EventCalendar.CalendarEventView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="calendarEventView"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid MouseDown="EventMouseDown">
+        <TextBlock
+            x:Name="EventTextBlock"
+            Background="{Binding ElementName=calendarEventView, Path=BackgroundColor, UpdateSourceTrigger=PropertyChanged}"
+            Text="{Binding Label, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</UserControl>
