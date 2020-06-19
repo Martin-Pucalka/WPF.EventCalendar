@@ -346,7 +346,7 @@ namespace WPF.EventCalendar
                     for (DateTime date = dateFrom; date <= dateTo; date = date.AddDays(1))
                     {
                         // get DayOfWeek for current day of current event
-                        CalendarDay day = DaysInCurrentMonth.Where(d => d.Date.Day == date.Day).FirstOrDefault();
+                        CalendarDay day = DaysInCurrentMonth.Where(d => d.Date.Date == date.Date).FirstOrDefault();
 
                         // day is in another mont, so skip it
                         if (day == null)
