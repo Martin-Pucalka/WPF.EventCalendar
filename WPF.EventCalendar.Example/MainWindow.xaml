@@ -11,6 +11,6 @@
     Height="800"
     mc:Ignorable="d">
     <Grid>
-        <calendar:CalendarMonth x:Name="Calendar" Events="{Binding ElementName=mainWindow, Path=Events}" />
+        <calendar:CalendarMonth x:Name="MyCalendar" Events="{Binding ElementName=mainWindow, Path=Events}" />
     </Grid>
 </Window>
