@@ -35,7 +35,7 @@ namespace WPF.EventCalendar.Example
                     OnPropertyChanged(() => Events);
 
                     // redraw days with events when Events property changes
-                    Calendar.DrawDays();
+                    MyCalendar.DrawDays();
                 }
             }
         }

@@ -13,7 +13,7 @@ In xaml:
     x:Name="mainWindow"
     ...>
 
-<calendar:CalendarMonth x:Name="Calendar" Events="{Binding ElementName=mainWindow, Path=Events}" />
+<calendar:CalendarMonth x:Name="MyCalendar" Events="{Binding ElementName=mainWindow, Path=Events}" />
 ```
 
 In code behind to display events (optionally): 
@@ -32,7 +32,7 @@ In code behind to display events (optionally):
                 OnPropertyChanged(() => Events);
 
                 // redraw days with events when Events property changes
-                Calendar.DrawDays();
+                MyCalendar.DrawDays();
             }
         }
     }
